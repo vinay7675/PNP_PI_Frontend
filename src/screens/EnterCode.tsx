@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Robot from "../components/Robot";
 
+
 export default function EnterCode({ onSubmit, onCancel }: { onSubmit: (code: string) => void; onCancel: () => void }) {
   const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
 
@@ -39,6 +40,7 @@ export default function EnterCode({ onSubmit, onCancel }: { onSubmit: (code: str
   return (
     <div className="w-screen h-screen bg-[#F7F5EF] grid place-items-center overflow-hidden">
       {/* FIXED KIOSK CANVAS */}
+     
       <div
         className="flex"
         style={{

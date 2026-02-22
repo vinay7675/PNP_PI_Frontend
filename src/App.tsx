@@ -6,8 +6,9 @@ import Printing from "./screens/Printing";
 import Success from "./screens/Success";
 import OutOfService from "./screens/OutOfService";
 import PrintFailed from "./screens/PrintFailed";
-import type { KioskState } from "./store/kioskState";
 import Error from "./screens/Error";
+import { Logo } from "./components/logo";
+import type { KioskState } from "./store/kioskState";
 import { setKioskState, subscribe } from "./store/kioskState";
 import { startPrint } from "./api/backend";
 import { connectWS } from "./api/ws";
@@ -16,10 +17,8 @@ export default function App() {
   const [state, setState] = useState<KioskState>("WELCOME");
 
   useEffect(() => {
-    // Subscribe to global kiosk state
     const unsub = subscribe(setState);
     
-    // Connect WebSocket once
     connectWS((msg) => {
       if (msg.event === "FETCHING") setKioskState("FETCHING");
       if (msg.event === "PRINTING") setKioskState("PRINTING");
@@ -35,28 +34,21 @@ export default function App() {
     return unsub;
   }, []);
 
-  // Go to welcome after displaying success for 10 seconds
   useEffect(() => {
     if (state === "SUCCESS") {
-      const timer = setTimeout(() => {
-        setKioskState("WELCOME");
-      }, 10000); // 10 seconds
+      const timer = setTimeout(() => setKioskState("WELCOME"), 10000);
       return () => clearTimeout(timer);
     }
   }, [state]);
 
-  // Go to welcome after displaying print failed for 30 seconds
   useEffect(() => {
     if (state === "PRINT_FAILED") {
-      const timer = setTimeout(() => {
-        setKioskState("WELCOME");
-      }, 30000); // 30 seconds
+      const timer = setTimeout(() => setKioskState("WELCOME"), 30000);
       return () => clearTimeout(timer);
     }
   }, [state]);
 
   function handleSubmit(code: string) {
-    // Backend decides what happens next
     startPrint(code).catch((err) => {
       if (err.message === "INVALID_CODE") {
         setKioskState("ERROR");
@@ -66,29 +58,45 @@ export default function App() {
     });
   }
 
+  // Determine which screen to show
+  let screen;
   switch (state) {
     case "WELCOME":
-      return <Welcome onStart={() => setKioskState("ENTER_CODE")} />;
+      screen = <Welcome onStart={() => setKioskState("ENTER_CODE")} />;
+      break;
     case "ENTER_CODE":
-      return (
-        <EnterCode 
-          onSubmit={handleSubmit} 
-          onCancel={() => setKioskState("WELCOME")} 
-        />
-      );
+      screen = <EnterCode 
+        onSubmit={handleSubmit} 
+        onCancel={() => setKioskState("WELCOME")} 
+      />;
+      break;
     case "FETCHING":
-      return <Loading text="Fetching document…" />;
+      screen = <Loading text="Fetching document…" />;
+      break;
     case "PRINTING":
-      return <Printing />;
+      screen = <Printing />;
+      break;
     case "SUCCESS":
-      return <Success />;
+      screen = <Success />;
+      break;
     case "OUT_OF_SERVICE":
-      return <OutOfService />;
+      screen = <OutOfService />;
+      break;
     case "PRINT_FAILED":
-      return <PrintFailed onTimeout={() => setKioskState("WELCOME")} />;
+      screen = <PrintFailed onTimeout={() => setKioskState("WELCOME")} />;
+      break;
     case "ERROR":
-      return <Error handleRetry={() => setKioskState("ENTER_CODE")} />;
+      screen = <Error handleRetry={() => setKioskState("ENTER_CODE")} />;
+      break;
     default:
-      return null;
+      screen = null;
   }
+
+  // Render screen THEN logo (logo appears on top)
+  return (
+    <>
+      {screen}
+      <Logo size={80} />
+    </>
+  );
 }
