@@ -96,7 +96,7 @@ export default function App() {
   return (
     <>
       {screen}
-      <Logo size={100} />
+      <Logo size={120} />
     </>
   );
 }

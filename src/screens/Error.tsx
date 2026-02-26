@@ -8,7 +8,7 @@ export default function Error() {
   };
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center bg-[#F7F5EF] overflow-hidden relative">
+    <div className="w-screen h-screen flex items-center scale-125 justify-center bg-[#F7F5EF] overflow-hidden relative">
       {/* Background Elements */}
       <motion.div
         className="absolute top-12 left-12 w-32 h-32 rounded-3xl bg-gradient-to-br from-[#FFB6C1] to-[#FFC0CB]"
@@ -196,7 +196,7 @@ export default function Error() {
           onClick={handleRetry}
           className="group relative px-10 py-4 bg-gradient-to-r from-[#FFBF00] via-[#FFD700] to-[#FFBF00] text-[#1F2A44] font-bold text-lg rounded-full shadow-2xl hover:shadow-[#FFBF00]/50 transition-all flex items-center gap-3"
           style={{
-            boxShadow: "0 8px 32px rgba(255, 191, 0, 0.4), 0 0 60px rgba(255, 191, 0, 0.2)",
+            boxShadow: "0 8px 32px rgba(255, 191, 0, 0.4), 0 0 60px rgba(255, 191, 0, 0.2)", padding:"10px"
           }}
         >
           <motion.div 

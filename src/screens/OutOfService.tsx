@@ -3,7 +3,7 @@ import { WifiOff, AlertTriangle } from "lucide-react";
 
 export default function OutOfService() {
   return (
-    <div className="w-screen h-screen flex items-center justify-center bg-[#F7F5EF]">
+    <div className="w-screen h-screen scale-125 flex items-center justify-center bg-[#F7F5EF]">
       {/* Animated Grid Pattern */}
       <div className="absolute inset-0 opacity-10">
         <motion.div

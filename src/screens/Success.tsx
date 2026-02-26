@@ -29,7 +29,8 @@ export default function Success() {
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ type: "spring", damping: 10, stiffness: 100 }}
-          className="mb-6"
+          className="mb-20 scale-300"
+          style={{marginBottom:"20px"}}
         >
           <div className="relative">
             <motion.div
@@ -52,10 +53,10 @@ export default function Success() {
           <h1 className="text-4xl font-bold text-[#1F2A44] mb-3 font-cormorant">
             Print Complete!
           </h1>
-          <p className="text-[#1F2A44]/70 text-base max-w-md leading-relaxed">
+          <h2 className="text-[#1F2A44]/70 text-base max-w-md leading-relaxed">
             Your document has been printed successfully. 
-            Please collect your prints from the output tray.
-          </p>
+            Please collect your prints from the output slot.
+          </h2>
         </motion.div>
 
         <motion.p

@@ -14,10 +14,10 @@ export default function Loading({ text }: { text: string }) {
       />
 
       <div
-        className="relative flex flex-col items-center justify-center"
+        className="relative scale-125 flex flex-col items-center justify-center"
         style={{ width: "650px", height: "350px" }}
       >
-        <Robot size="small" />
+        <Robot size="large" />
 
         {/* Spinner */}
         <motion.div

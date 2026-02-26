@@ -9,6 +9,7 @@ export default function PrintFailed({ onTimeout }: { onTimeout?: () => void }) {
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "system-ui, -apple-system, sans-serif",
+        
       }}
     >
       <div
@@ -23,10 +24,11 @@ export default function PrintFailed({ onTimeout }: { onTimeout?: () => void }) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-between",
+          
         }}
       >
         {/* Error Icon and Title */}
-        <div style={{ textAlign: "center" }}>
+        <div class="scale-125" style={{ textAlign: "center", marginTop:"100px" }}>
           <div
             style={{
               width: "50px",
@@ -86,9 +88,9 @@ export default function PrintFailed({ onTimeout }: { onTimeout?: () => void }) {
             padding: "16px",
           }}
         >
-          <h2
+          <h1
             style={{
-              fontSize: "16px",
+              fontSize: "20px",
               fontWeight: "600",
               color: "#111827",
               margin: "0 0 12px 0",
@@ -96,7 +98,7 @@ export default function PrintFailed({ onTimeout }: { onTimeout?: () => void }) {
             }}
           >
             Please Contact Support
-          </h2>
+          </h1>
 
           <div style={{ display: "flex", gap: "20px", justifyContent: "center" }}>
             {/* Email */}
@@ -130,7 +132,7 @@ export default function PrintFailed({ onTimeout }: { onTimeout?: () => void }) {
               <div>
                 <p
                   style={{
-                    fontSize: "10px",
+                    fontSize: "15px",
                     color: "#6B7280",
                     margin: "0",
                     fontWeight: "500",
@@ -141,7 +143,7 @@ export default function PrintFailed({ onTimeout }: { onTimeout?: () => void }) {
                 <a
                   href="mailto:support@paynprint.com"
                   style={{
-                    fontSize: "12px",
+                    fontSize: "18px",
                     fontWeight: "600",
                     color: "#2563EB",
                     textDecoration: "none",
@@ -183,7 +185,7 @@ export default function PrintFailed({ onTimeout }: { onTimeout?: () => void }) {
               <div>
                 <p
                   style={{
-                    fontSize: "10px",
+                    fontSize: "15px",
                     color: "#6B7280",
                     margin: "0",
                     fontWeight: "500",
@@ -195,7 +197,7 @@ export default function PrintFailed({ onTimeout }: { onTimeout?: () => void }) {
                   <a
                     href="tel:+917675012905"
                     style={{
-                      fontSize: "12px",
+                      fontSize: "18px",
                       fontWeight: "600",
                       color: "#059669",
                       textDecoration: "none",
@@ -207,7 +209,7 @@ export default function PrintFailed({ onTimeout }: { onTimeout?: () => void }) {
                   <a
                     href="tel:+916305840749"
                     style={{
-                      fontSize: "12px",
+                      fontSize: "18px",
                       fontWeight: "600",
                       color: "#059669",
                       textDecoration: "none",

@@ -1,5 +1,5 @@
 import React from 'react';
-import logoSrc from '../assets/pnpLogo.png';
+import logoSrc from '../assets/Real_logo_bg.jpeg';
 
 export const Logo = ({ size = 80 }) => {
   return (

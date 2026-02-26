@@ -42,14 +42,14 @@ export default function EnterCode({ onSubmit, onCancel }: { onSubmit: (code: str
       {/* FIXED KIOSK CANVAS */}
      
       <div
-        className="flex"
+        className="flex scale-125"
         style={{
           width: "650px",
           height: "350px",
         }}
       >
         {/* LEFT — ROBOT */}
-        <div className="flex flex-col items-center justify-center w-[30%] px-3 text-center">
+        <div className="flex flex-col items-center justify-center w-[30%] px-3 text-center" style={{marginTop:"50px"}}>
           <Robot />
 
           <p className="mt-3 text-[#1F2A44]/70 text-sm leading-snug">

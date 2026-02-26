@@ -21,11 +21,11 @@ const [CurrentIndex,setCurrentIndex] = useState(0);
     <div className="w-screen h-screen flex items-center justify-center bg-[#F7F5EF]">
       <div
         className="relative flex flex-col items-center "
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100%", height: "100%", marginTop:"120px" }}
       >
-        <h2 className="text-2xl font-bold text-[#1F2A44] mb-2 font-cormorant">
+        <h1 className="text-4xl font-bold text-[#1F2A44] mb-2 font-cormorant">
           Printing Your Document
-        </h2>
+        </h1>
         {/* Printer Animation Container */}
         <div className="relative mb-8" style={{ height: "200px", width: "200px" }}>
           
@@ -36,7 +36,8 @@ const [CurrentIndex,setCurrentIndex] = useState(0);
               top: "-60px",
               width: "90px",
               marginTop:  "10px",
-              zIndex: 5
+              zIndex: 5,
+        
             }}
             animate={{ 
               y: [0, 0, 0, 100, 100, 100],

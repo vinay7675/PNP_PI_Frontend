@@ -18,7 +18,7 @@ export default function Welcome({ onStart }: Props) {
           top: "5%", 
           left: "5%", 
           opacity: 0.8,
-          zIndex: 0
+          zIndex: 11
         }}
       />
       
@@ -29,7 +29,7 @@ export default function Welcome({ onStart }: Props) {
           top: "8%", 
           right: "8%", 
           opacity: 0.75,
-          zIndex: 0
+          zIndex: 11
         }}
       />
 
@@ -40,7 +40,7 @@ export default function Welcome({ onStart }: Props) {
           top: "35%", 
           left: "8%", 
           opacity: 0.7,
-          zIndex: 0
+          zIndex: 11
         }}
       />
 
@@ -51,7 +51,7 @@ export default function Welcome({ onStart }: Props) {
           top: "28%", 
           right: "10%", 
           opacity: 0.75,
-          zIndex: 0
+          zIndex: 11
         }}
       />
 
@@ -62,7 +62,7 @@ export default function Welcome({ onStart }: Props) {
           bottom: "10%", 
           left: "10%", 
           opacity: 0.8,
-          zIndex: 0
+          zIndex: 11
         }}
       />
 
@@ -73,7 +73,7 @@ export default function Welcome({ onStart }: Props) {
           bottom: "8%", 
           right: "12%", 
           opacity: 0.75,
-          zIndex: 0
+          zIndex: 11
         }}
       />
 
@@ -84,7 +84,7 @@ export default function Welcome({ onStart }: Props) {
           top: "12%", 
           left: "35%", 
           opacity: 0.7,
-          zIndex: 0
+          zIndex: 11
         }}
       />
 
@@ -95,13 +95,13 @@ export default function Welcome({ onStart }: Props) {
           bottom: "15%", 
           left: "55%", 
           opacity: 0.75,
-          zIndex: 0
+          zIndex: 11
         }}
       />
 
       {/* MAIN CONTENT - Higher z-index */}
       <div
-        className="relative flex flex-col items-center justify-center text-center"
+        className="relative flex flex-col scale-125 items-center justify-center text-center"
         style={{ width: "650px", height: "350px", zIndex: 10 }}
       >
         {/* ROBOT */}
@@ -121,10 +121,10 @@ export default function Welcome({ onStart }: Props) {
           transition={{ delay: 0.3 }}
           className="mb-8"
         >
-          <h1 className="text-4xl font-bold text-[#1F2A44] mb-3 font-cormorant">
+          <h1 className="text-4xl font-bold text-[#1F2A44] font-cormorant">
             Hello! I'm Your Print Assistant
           </h1>
-          <p className="text-[#1F2A44] opacity-70 text-base leading-relaxed">
+          <p style={{marginTop:"-20px", marginBottom:"30px"}} className="text-[#1F2A44] opacity-70 -mt-4 text-base leading-relaxed">
             I'm here to help you print quickly and easily. Let's get started!
           </p>
         </motion.div>
@@ -137,9 +137,9 @@ export default function Welcome({ onStart }: Props) {
           transition={{ delay: 0.5 }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          className="group relative px-12 py-5 bg-gradient-to-r from-[#FFBF00] via-[#FFD700] to-[#FFBF00] text-[#1F2A44] font-bold text-xl rounded-full shadow-2xl hover:shadow-[#FFBF00]/50 transition-all flex items-center gap-4"
+          className="group relative bg-gradient-to-r from-[#FFBF00] via-[#FFD700] to-[#FFBF00] text-[#1F2A44] font-bold text-xl rounded-full shadow-2xl hover:shadow-[#FFBF00]/50 transition-all flex items-center gap-4"
           style={{
-            boxShadow: "0 8px 32px rgba(255, 191, 0, 0.4), 0 0 60px rgba(255, 191, 0, 0.2)",
+            boxShadow: "0 8px 32px rgba(255, 191, 0, 0.4), 0 0 60px rgba(255, 191, 0, 0.2)", padding:"10px"
           }}
         >
           <motion.div 
@@ -148,7 +148,7 @@ export default function Welcome({ onStart }: Props) {
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           />
           
-          <span className="relative z-10 tracking-wide">Start Your Print</span>
+          <span className="relative z-10 tracking-wide" style={{fontWeight:"800"}}>Start Your Print</span>
           <ArrowRight className="w-6 h-6 relative z-10 group-hover:translate-x-2 transition-transform" strokeWidth={3} />
         </motion.button>
       </div>
