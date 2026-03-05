@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { XCircle, RotateCcw } from "lucide-react";
 import { setKioskState } from "../store/kioskState";
 
-export default function Error() {
+export default function Error({message} : string) {
   const handleRetry = () => {
     setKioskState("ENTER_CODE");
   };
@@ -179,7 +179,7 @@ export default function Error() {
           className="mb-8"
         >
           <h1 className="text-3xl font-bold text-[#1F2A44] mb-3 font-cormorant">
-            Invalid Print Code
+            {message}
           </h1>
           <p className="text-[#1F2A44] opacity-70 text-base leading-relaxed max-w-md">
             Oops! The code you entered is not valid. Please check your code and try again.

@@ -15,6 +15,7 @@ import { connectWS } from "./api/ws";
 
 export default function App() {
   const [state, setState] = useState<KioskState>("WELCOME");
+  const [message, setMessage] = useState<"">("");
 
   useEffect(() => {
     const unsub = subscribe(setState);
@@ -48,15 +49,31 @@ export default function App() {
     }
   }, [state]);
 
-  function handleSubmit(code: string) {
-    startPrint(code).catch((err) => {
-      if (err.message === "INVALID_CODE") {
+  async function handleSubmit(code: string) {
+    //startPrint(code).catch((err) => {
+     // if (err.message === "INVALID_CODE") {
+     //   setKioskState("ERROR");
+     // } else {
+    //    setKioskState("OUT_OF_SERVICE");
+    //  }
+    //});
+    try {
+
+    const data = await startPrint(code);
+    const ErrMsg = data.errorMsg;
+      setMessage(ErrMsg);
+    if (data.status === "INVALID_CODE") {
         setKioskState("ERROR");
       } else {
         setKioskState("OUT_OF_SERVICE");
       }
-    });
   }
+    
+    catch (err: any) {
+    
+    setKioskState("ERROR");
+  }
+  } 
 
   // Determine which screen to show
   let screen;
@@ -86,7 +103,7 @@ export default function App() {
       screen = <PrintFailed onTimeout={() => setKioskState("WELCOME")} />;
       break;
     case "ERROR":
-      screen = <Error handleRetry={() => setKioskState("ENTER_CODE")} />;
+      screen = <Error message={message} handleRetry={() => setKioskState("ENTER_CODE")} />;
       break;
     default:
       screen = null;
