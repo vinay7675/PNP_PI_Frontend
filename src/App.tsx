@@ -64,7 +64,7 @@ export default function App() {
       setMessage(ErrMsg);
     if (data.status === "INVALID_CODE") {
         setKioskState("ERROR");
-      } else {
+      } else if(data.status === "OUT_OF_SERVICE"){
         setKioskState("OUT_OF_SERVICE");
       }
   }
