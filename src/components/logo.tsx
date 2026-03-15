@@ -17,10 +17,14 @@ export const Logo = ({ size = 80 }) => {
       <img 
         src={logoSrc} 
         alt="PayNPrint Logo" 
+        draggable="false"
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
         style={{
           width: '120%',
           height: '100%',
-          objectFit: 'contain'
+          objectFit: 'contain',
+          userSelect: 'none', pointerEvents: 'none'
         }}
       />
     </div>
